@@ -2,6 +2,15 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css" />
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+ <script type="text/javascript">
+  function generateBarCode()
+  {
+   var nric = $('#text').val();
+   var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=50x50';
+   $('#barcode').attr('src', url);
+  }
+ </script>
 </head>
 <body>
 <div id="fb-root"></div>
@@ -76,6 +85,16 @@
 <hr>
 <section id="qrcoder" class="section">
  <h1 align="center">SCAN MY CODE</h1>
+<!-- <input id="text" type="text"-->
+<!--        value="NRIC or Work Permit" style="Width:20%"-->
+<!--        onblur='generateBarCode();' />-->
+
+ <img class="center1" id='barcode'
+      src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100"
+      alt=""
+      title="HELLO"
+      width="100"
+      height="100">
 </section>
 <hr>
 <section id="spa" class="section">
@@ -108,7 +127,7 @@ if we will search "medical side effects" we will find:
 <section id="contact" class="section">
  <h1 align="center">CONTACT ME :)</h1>
  <div class="container1">
-  <form action="action_page.php">
+  <form action="mailto:someone@example.com" method="post" enctype="text/plain">
 
    <label for="fname">First Name</label>
    <input type="text" id="fname" name="firstname" placeholder="Your name..">
@@ -125,7 +144,7 @@ if we will search "medical side effects" we will find:
    <label for="subject">Subject</label>
    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
-   <input type="submit" value="Submit" formaction="?">
+   <input type="submit" value="send" formaction="mailto:irisdrei@post.bgu.ac.il">
 
   </form>
  </div>
